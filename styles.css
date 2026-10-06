@@ -1872,6 +1872,10 @@ body[data-theme="dark"] .project-card-highlight {
     margin-top: 0;
   }
 
+  .hero-stack p {
+    line-height: 1.6;
+  }
+
   .metric-panel {
     grid-template-columns: 1fr;
   }
