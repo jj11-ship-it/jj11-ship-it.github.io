@@ -2045,6 +2045,10 @@ body[data-theme="dark"] .project-card-highlight {
   gap: 14px;
 }
 
+.project-prd-grid {
+  grid-auto-flow: row dense;
+}
+
 .project-content-card {
   padding: 22px;
   border: 1px solid var(--line);

@@ -84,17 +84,23 @@
           <section id="key-decisions" class="project-story-section">
             <h2>关键产品决策</h2>
             <div class="project-decision-list">
-              <article><span>01</span><div><h3>决策占位一</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
-              <article><span>02</span><div><h3>决策占位二</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
+              <article><span>01</span><div><h3>真实运行优先，不用模拟链路</h3><p>课程必须基于真实可运行项目，学习内容来自用户本次操作实际产生的请求、后端处理和数据变化；宁可承担环境复杂度，也不使用预设动画或模拟日志替代真实运行。</p></div></article>
+              <article><span>02</span><div><h3>按能力依赖递进，不开放自由跳学</h3><p>四个项目按“数据闭环→权限与关联→异步可靠性→AI链路”逐级解锁，前一项目综合实战通过后才能进入下一项目；不按语言或技术栈章节组织，也不允许绕过核心能力直接跳级。</p></div></article>
+              <article><span>03</span><div><h3>区分“完成”与“掌握”，不用虚构分数代表能力</h3><p>作答过只记为“已完成”，错误内容进入“待巩固”，只有后续答对且存在对应真实学习记录时才标记“已掌握”；不展示缺乏依据的总分、百分比或能力雷达图。</p></div></article>
+              <article><span>04</span><div><h3>AI只解释已有证据，不成为事实源或学习依赖</h3><p>AI导师只基于当前节点真实证据回答，证据不足时明确拒绝补全；即使AI不可用，用户仍可完成操作、查看证据、阅读代码、练习和实战。</p></div></article>
             </div>
           </section>
 
           <section id="user-flow" class="project-story-section">
             <h2>工作流</h2>
-            <div class="project-flow" aria-label="项目工作流">
-              <span>阶段占位一</span>
-              <span>阶段占位二</span>
-              <span>阶段占位三</span>
+            <div class="project-flow" aria-label="FullStackFlow 项目工作流">
+              <span>梳理产品概念+动态澄清</span>
+              <span>真实竞品调研</span>
+              <span>形成产品假设</span>
+              <span>产品方案+可交互Demo</span>
+              <span>用户体验与反馈循环</span>
+              <span>确认首版产品范围</span>
+              <span>正式实施+交付复盘</span>
             </div>
           </section>
 
@@ -104,27 +110,44 @@
               <article class="project-content-card">
                 <span class="project-card-index">01</span>
                 <h3>用户与核心场景</h3>
-                <p>项目详情内容待补充：说明目标用户、核心场景与需求边界。</p>
+                <p><strong>目标用户：</strong>具备基础编程知识，但缺少完整功能链路理解与调试经验的学习者，包括编程初学者与 AI 产品经理。</p>
+                <p><strong>核心场景：</strong>完成真实操作后追溯功能执行过程；通过练习与实战验证理解；遇到节点疑问时获取基于当前证据的辅助解释。</p>
               </article>
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <span class="project-card-index">02</span>
-                <h3>核心业务流程</h3>
-                <p>项目详情内容待补充：说明核心业务流程。</p>
+                <h3>产品范围与优先级规划</h3>
+                <p><strong>优先级原则：</strong>优先保障核心学习闭环成立，再扩展复杂业务机制与高阶系统能力。优先级与实现状态分开标记，避免将“已完成”直接等同于“高优先级”。</p>
+                <p><strong>版本边界：</strong>首版只覆盖 Todo「新增任务」完整学习闭环。Todo 查看 / 修改 / 删除及后三个项目均属于后续规划，不计入当前版本交付范围；课程目录存在不等同于功能已完成。AI 导师属于辅助能力，不作为首版主流程前置条件。AI 服务不可用时，真实操作、证据学习、练习与实战仍需独立可完成。</p>
+                <p><strong>交付判定：</strong>当前版本只有在以下核心能力同时成立时，才判定为可交付：</p>
+                <ul>
+                  <li>用户能够完成一次真实 Todo 新增操作，并生成对应运行记录；</li>
+                  <li>8 个学习节点能够展示与本次运行对应的真实证据；</li>
+                  <li>用户可完成节点学习、4 组练习与综合实战；</li>
+                  <li>学习状态、待巩固项与学习记录能够正确保存；</li>
+                  <li>AI 导师严格受当前授权证据约束，且异常不阻塞主流程；</li>
+                  <li>平台或 AI 故障不得被记录为用户学习错误。</li>
+                </ul>
               </article>
               <article class="project-content-card">
                 <span class="project-card-index">03</span>
-                <h3>产品范围与优先级规划</h3>
-                <p>项目详情内容待补充：说明产品范围与优先级规划。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">04</span>
                 <h3>核心功能需求</h3>
-                <p>项目详情内容待补充：说明核心功能需求。</p>
+                <ol>
+                  <li><strong>操作与链路捕获：</strong>用户在课程内完成指定操作后，系统生成本次运行记录，并关联对应链路节点。捕获期间禁止重复提交；刷新或暂时失败后优先恢复当前运行，避免生成重复记录。</li>
+                  <li><strong>证据学习工作台：</strong>每个节点展示本次运行对应的输入输出、解释与代码位置，支持沿链路逐步查看上下游关系。节点缺少有效记录时显示「尚无证据」，不以历史结果或预设内容补齐。</li>
+                  <li><strong>练习、实战与学习状态：</strong>练习覆盖链路排序、数据辨识、证据查找与问题定位；首答错误先引导重新观察，后续仍错误再提供答案依据。至少作答一次记为「已完成」，错误项进入「待巩固」；平台或 AI 故障不得计为用户错误。</li>
+                </ol>
               </article>
               <article class="project-content-card wide">
-                <span class="project-card-index">05</span>
+                <span class="project-card-index">04</span>
                 <h3>核心验收标准</h3>
-                <p>项目详情内容待补充：说明核心验收标准。</p>
+                <ul>
+                  <li><strong>运行记录：</strong>一次有效操作只生成一组对应运行记录，刷新与重复提交不得产生错误链路</li>
+                  <li><strong>证据一致性：</strong>节点展示的输入输出、代码与运行记录能够一一对应，缺失时明确标记无证据</li>
+                  <li><strong>练习状态：</strong>首答、重试、跳过、待巩固与掌握状态按既定规则独立记录，不以单一完成率替代</li>
+                  <li><strong>异常归因：</strong>业务错误、平台错误和AI服务错误必须区分呈现，系统故障不得形成负面学习记录</li>
+                  <li><strong>AI上下文：</strong>每次调用可确认实际发送范围;未经确认不得发送完整文件或额外上下文</li>
+                  <li><strong>降级可用：</strong>AI不可用时，Todo「新增任务」的操作、证据学习、练习和实战仍可独立完成</li>
+                </ul>
               </article>
             </div>
           </section>
