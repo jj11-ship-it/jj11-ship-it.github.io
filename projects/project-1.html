@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CampusMate 校伴 新生办事台 | 寇佳佳</title>
+    <meta name="description" content="寇佳佳的 AI 产品项目详情。">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="project-page">
+    <header class="site-header">
+      <a class="brand" href="../index.html#top" aria-label="返回作品集首页">
+        <span class="brand-mark">JJ</span>
+        <span>
+          <strong>寇佳佳</strong>
+          <small>Portfolio</small>
+        </span>
+      </a>
+
+      <div class="nav-dock" aria-label="项目详情页导航与主题切换">
+        <nav class="nav-links" aria-label="项目详情页导航">
+          <a href="../index.html#case-studies">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </span>
+            <span>返回精选项目</span>
+          </a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="切换夜间模式" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span class="theme-label">Night</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="project-detail section-shell">
+      <section class="project-detail-hero">
+        <div>
+          <p class="eyebrow">GenAI Application</p>
+          <h1 class="project-detail-title-compact">CampusMate 校伴 新生办事台</h1>
+          <p>基于 RAG 与 LangGraph 搭建的高校新生办事助手，把官方办事资料转化为带引用的可信问答与可执行的任务清单。</p>
+          <div class="project-detail-actions">
+            <a class="btn primary" href="../index.html#case-studies">Back to Projects</a>
+              <a class="btn secondary" href="#" target="_blank" rel="noreferrer">Open Demo ↗</a>
+          </div>
+        </div>
+
+        <aside class="project-facts" aria-label="项目概览">
+          <div><span>Role</span><strong>用户研究 · 产品方案 · 评测体系</strong></div>
+          <div><span>Tools</span><strong>LangGraph · RAG · Chroma + SQLite</strong></div>
+          <div><span>Value</span><strong>Golden Set Top-3 Hit：98.18% · Unseen Holdout：52.5% → 75%</strong></div>
+        </aside>
+      </section>
+
+      <div class="project-story-layout">
+        <aside class="project-toc" aria-label="项目详情目录">
+          <a class="is-active" href="#project-overview">项目概览</a>
+          <a href="#key-decisions">关键决策</a>
+          <a href="#user-flow">工作流</a>
+          <a href="#prd-summary">PRD 摘要</a>
+          <a href="#ai-evaluation">AI 边界与评测</a>
+          <a href="#delivery-review">交付与复盘</a>
+        </aside>
+
+        <div class="project-story-content">
+          <section id="project-overview" class="project-story-section">
+            <h2>项目背景与问题</h2>
+            <div class="project-content-grid">
+              <article class="project-content-card">
+                <h3>核心问题</h3>
+                <p>校园办事规则分散在官网、PDF 与公众号等多个来源，新旧版本并存且互相矛盾；学生照着过期或错误的信息办事，会付出带错材料、去错地点这类实际代价。</p>
+              </article>
+              <article class="project-content-card">
+                <h3>关键挑战</h3>
+                <p>既要让 AI 把分散资料整理成可执行、可追溯的答案，又不能让它越过证据编造——查不到依据必须明说；同时要应对规则年度更新带来的版本冲突，以及代办类需求的安全边界。</p>
+              </article>
+            </div>
+            <div class="project-goal-callout"><strong>产品目标：</strong>把“搜到什么信什么”的办事信息获取，转化为带官方引用、可勾选执行、证据不足明确拒答的可信办事流程。</div>
+          </section>
+
+          <section id="key-decisions" class="project-story-section">
+            <h2>关键产品决策</h2>
+            <div class="project-decision-list">
+              <article><span>01</span><div><h3>可信优先于回答率</h3><p>证据不足明确拒答、每条回答带引用；用户会照着答案办事，编造的答案比承认不知道危害大得多。</p></div></article>
+              <article><span>02</span><div><h3>否决 Hybrid Search 上线</h3><p>对照实验让 55 题 Top-3 从 98.18% 退化到 92.73%，按预设回归关口否决：不是所有“更先进”都该上，每个组件上线前必须回答“解决了哪个稳定复现的问题、带来多少收益”。</p></div></article>
+              <article><span>03</span><div><h3>不上 reranker</h3><p>排序问题（报到材料分块稳定排第 8）用 metadata 软加权最小修复，chunk 从第 8 名进 Top-2；收益已被最小方案覆盖，重武器省了。</p></div></article>
+              <article><span>04</span><div><h3>主评测不用 LLM-as-Judge</h3><p>16 题人工终审成本约 2 小时，Judge 的校准成本反而更高；后用独立 LLM 复核做了评分一致性检验（判定一致 5/5、±1 一致 100%），作为引入 Judge 前的校准步骤。</p></div></article>
+            </div>
+          </section>
+
+          <section id="user-flow" class="project-story-section">
+            <h2>工作流</h2>
+            <div class="project-flow" aria-label="CampusMate 项目工作流">
+              <span>痛点洞察</span>
+              <span>产品概念梳理<br><small>PRD 定义边界 + 方案确认校准</small></span>
+              <span>定位与差异判断</span>
+              <span>核心假设形成</span>
+              <span>PRD 与可交互产品壳</span>
+              <span>评测驱动的反馈循环</span>
+              <span>迭代实施与交付</span>
+            </div>
+          </section>
+
+          <section id="prd-summary" class="project-story-section">
+            <h2>PRD 摘要</h2>
+            <div class="project-content-grid project-prd-grid">
+              <article class="project-content-card">
+                <span class="project-card-index">01</span>
+                <h3>用户与核心场景</h3>
+                <p><strong>目标用户：</strong>需要在报到期集中办理多项事务的高校新生，以及有偶发校园服务需求的在校生。</p>
+                <p><strong>核心场景：</strong>快速确认“带什么、去哪办、按什么规则”，获得来源可查、可以直接执行的办事清单。</p>
+                <p><strong>需求边界：</strong>聚焦官方信息整合、引用与任务规划；不接入校内私有系统、不读取个人隐私、不代替用户办理事务。</p>
+              </article>
+              <article class="project-content-card">
+                <span class="project-card-index">02</span>
+                <h3>核心业务流程</h3>
+                <p><strong>流程 1：RAG 问答链路</strong></p>
+                <div class="project-process-line">提问 → 检索 → 上下文组装 → 生成 → 引用展示 → 证据不足拒答</div>
+                <p><strong>流程 2：Agent 办事流程</strong></p>
+                <div class="project-process-line">输入需求 → 多域检索 → 校区过滤 → 生成草稿 → 证据补查与逐字回填 → 引用剪枝 → 确定性校验 → 用户确认 → 保存与状态管理</div>
+              </article>
+              <article class="project-content-card">
+                <span class="project-card-index">03</span>
+                <h3>产品范围与优先级规划</h3>
+                <ul>
+                  <li><strong>风险优先于广度：</strong>最高风险假设最先验证：先证明“AI 不编造”，再扩展场景。</li>
+                  <li><strong>测量先于扩展：</strong>评测体系建在功能扩展之前：没有度量，迭代就是拍脑袋。</li>
+                  <li><strong>场景推导形态：</strong>信息查询做问答、多步骤任务做 Agent：产品形态由用户任务决定，不由技术决定。</li>
+                  <li><strong>门槛纪律：</strong>每个新组件上线前必须回答“解决了哪个稳定复现的问题、带来多少收益”，未达门槛不做。</li>
+                </ul>
+              </article>
+              <article class="project-content-card">
+                <span class="project-card-index">04</span>
+                <h3>核心功能需求</h3>
+                <ol>
+                  <li><strong>可信办事问答：</strong>基于官方资料生成带引用的回答；证据不足时明确拒答，并引导用户前往官方渠道。</li>
+                  <li><strong>新生办事台：</strong>将多项需求整理为带引用的任务清单，经用户确认后保存，并支持状态跟踪与重新规划。</li>
+                  <li><strong>澄清追问：</strong>需求模糊时只追问最关键的缺失条件；不索取敏感信息，无法确认时拒绝推测并提供替代指引。</li>
+                </ol>
+              </article>
+              <article class="project-content-card wide">
+                <span class="project-card-index">05</span>
+                <h3>核心验收标准</h3>
+                <ul>
+                  <li>每条回答必须关联至少一条可展开核验的知识库原始证据（引用）。</li>
+                  <li>依据不足时必须明确说明“没有找到充分依据”并指引官方渠道，不得编造或推测。</li>
+                  <li>废止与草稿资料不得参与回答；回答与证据冲突时以证据为准。</li>
+                  <li>高风险事务强制引用、证据不足即拒答分流；紧急风险不做常规问答、直接引导人工渠道。</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section id="ai-evaluation" class="project-story-section">
+            <h2>AI 能力边界与评测</h2>
+            <div class="project-content-grid">
+              <article class="project-content-card">
+                <h3>能力边界</h3>
+                <ol class="project-boundary-list">
+                  <li><strong>生成不等于判定</strong><p>AI 只生成回答与任务草稿；校区、引用和证据由确定性规则校验，最终评测由规则与人工完成。</p></li>
+                  <li><strong>无证据，不回答</strong><p>回答必须来自有效官方资料；证据不足或涉及高风险事务时明确拒答，并引导至人工或官方渠道。</p></li>
+                  <li><strong>不代办，不越权</strong><p>系统只负责检索、规划与保存，不收集支付凭证等敏感信息，也不代替用户执行对外操作；写入前必须由用户确认。</p></li>
+                </ol>
+              </article>
+              <article class="project-content-card">
+                <h3>评测指标</h3>
+                <ul>
+                  <li>Top-3 检索命中率（Hit Rate@3）</li>
+                  <li>平均倒数排名（MRR）</li>
+                  <li>引用支持率（Citation Support Rate）</li>
+                  <li>拒答准确率（Refusal Accuracy）</li>
+                  <li>Agent 任务质量评分（Agent Rubric Score）</li>
+                  <li>执行轨迹合规率（Trajectory Compliance Rate）</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section id="delivery-review" class="project-story-section">
+            <h2>交付物与复盘</h2>
+            <div class="project-content-grid">
+              <article class="project-content-card">
+                <h3>主要交付物</h3>
+                <ul>
+                  <li>可信问答与引用机制</li>
+                  <li>知识库治理与分块策略</li>
+                  <li>三层评测体系与双轨复核</li>
+                  <li>归因迭代方法论</li>
+                </ul>
+              </article>
+              <article class="project-content-card">
+                <h3>复盘</h3>
+                <div class="project-review-list">
+                  <p><strong>可信是产品功能，不是技术约束</strong>拒答、引用、风险分级和确认机制都是产品功能；可信不是在 Prompt 里写一句“不要幻觉”，而是一套完整的产品机制。</p>
+                  <p><strong>先分清产品失败还是评测失败</strong>评测口径错误会让所有指标失真；先校准口径，再修系统。</p>
+                  <p><strong>AI 的边界靠确定性兜底，不靠模型自觉</strong>Prompt 规则可能被模型遗忘，代码级校验节点不会；修复应从“改提示词”升级为“建立确定性防线”。</p>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
