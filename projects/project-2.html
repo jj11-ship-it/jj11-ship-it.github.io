@@ -157,11 +157,22 @@
             <div class="project-content-grid">
               <article class="project-content-card">
                 <h3>能力边界</h3>
-                <p>项目详情内容待补充：说明 AI 能力边界与兜底机制。</p>
+                <ol class="project-boundary-list">
+                  <li><strong>AI 只做解释与引导，不拥有判定权</strong><p>练习判读中，AI 只检查要点覆盖、指出最大遗漏、追问一次，不给标准答案；正式判题由确定性规则完成——AI 不负责题目判定、测试结论或能力评分。</p></li>
+                  <li><strong>AI 只基于当前节点真实证据回答，不允许编造</strong><p>回答必须可回溯到当前节点的真实输入输出；无证据时明确表示“不知道”，不允许模型推断证据外的事实。</p></li>
+                  <li><strong>AI 不是学习主流程的依赖</strong><p>AI 不可用时，学习、练习、实战、报告全部照常——AI 是增强能力，不是学习闭环的基础设施。</p></li>
+                  <li><strong>数据授权边界：只处理用户确认的上下文</strong><p>AI 默认只接收当前任务、当前节点证据和相关代码片段；完整文件必须经用户二次确认后才发送。</p></li>
+                </ol>
               </article>
               <article class="project-content-card">
                 <h3>评测指标</h3>
-                <p>项目详情内容待补充：说明评测指标与验证方法。</p>
+                <ul>
+                  <li><strong>任务质量：</strong>任务正确率、关键要点覆盖率</li>
+                  <li><strong>事实遵循：</strong>证据一致率、越界回答率</li>
+                  <li><strong>可靠性：</strong>超时率、调用失败率</li>
+                  <li><strong>体验：</strong>首Token延迟、完整响应时间</li>
+                  <li><strong>成本：</strong>单次任务平均Token与调用成本</li>
+                </ul>
               </article>
             </div>
           </section>
@@ -171,11 +182,20 @@
             <div class="project-content-grid">
               <article class="project-content-card">
                 <h3>主要交付物</h3>
-                <p>项目详情内容待补充：说明主要交付物。</p>
+                <ul>
+                  <li>知识螺旋编排机制</li>
+                  <li>受控消息契约与运行边界</li>
+                  <li>学习状态三态与评测体系</li>
+                </ul>
               </article>
               <article class="project-content-card">
                 <h3>复盘</h3>
-                <p>项目详情内容待补充：说明复盘结论与下一步迭代方向。</p>
+                <div class="project-review-list">
+                  <p>编程学习产品的重点不是继续增加课程数量，而是把“代码、运行结果和真实任务”重新连接起来，让用户理解知识在系统中什么时候发生、为什么发生。</p>
+                  <p>“真实”本身不等于“好学”。真实系统会带来更高的信息密度和认知负担，因此产品需要在保留真实运行的同时，通过节点拆解、证据映射和渐进展开降低理解成本。</p>
+                  <p>AI Tutor 的价值不在于回答更多问题，而在于基于正确上下文提供可信解释。AI 应作为学习辅助层，而不是事实来源，也不应成为核心学习闭环的单点依赖。</p>
+                  <p>学习完成不能直接代表能力形成。后续应从“课程进度”进一步转向“理解—应用—迁移”的学习评估，并通过能力成长地图、迁移挑战和个性化下一步，让用户真实感知能力变化。</p>
+                </div>
               </article>
             </div>
           </section>
