@@ -2136,11 +2136,6 @@ body[data-theme="dark"] .project-card-highlight {
   gap: 16px;
 }
 
-.project-boundary-list li::marker {
-  color: var(--blue);
-  font-weight: 900;
-}
-
 .project-boundary-list li > strong {
   display: block;
   margin-bottom: 6px;
