@@ -1859,13 +1859,17 @@ body[data-theme="dark"] .project-card-highlight {
 
   .hero-stack div {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 12px;
   }
 
   .hero-stack span,
   .hero-stack p {
     grid-column: auto;
     grid-row: auto;
+  }
+
+  .hero-stack p + p {
+    margin-top: 0;
   }
 
   .metric-panel {
