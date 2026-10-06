@@ -2273,7 +2273,11 @@ body[data-theme="dark"] .project-decision-list article {
 
 @media (max-width: 640px) {
   .project-toc {
-    top: 112px;
+    top: 136px;
+  }
+
+  .project-detail-hero {
+    padding: 20px;
   }
 
   .project-flow {
