@@ -118,13 +118,6 @@
               </article>
               <article class="project-content-card wide">
                 <span class="project-card-index">02</span>
-                <h3>产品范围与优先级规划</h3>
-                <p><strong>P0｜核心任务闭环：</strong>意图识别｜信息抽取与澄清｜差旅制度匹配｜预算估算｜交通酒店查询｜逐日行程生成｜规则校验与异常兜底</p>
-                <p><strong>P1｜任务延续与结果优化：</strong>自然语言修改方案｜影响范围分析｜局部重规划｜票据识别与分类｜报销合规核查｜任务状态持久化｜Trace记录</p>
-                <p><strong>P2｜完整产品交付：</strong>前后端接口接入｜执行过程实时展示｜日历与文件导出｜邮件能力｜真实预订能力｜用户偏好与长期记忆</p>
-              </article>
-              <article class="project-content-card wide">
-                <span class="project-card-index">03</span>
                 <h3>核心功能需求</h3>
                 <ul>
                   <li><strong>Intent Agent：</strong>识别新建出差、修改方案、报销和闲聊意图；提取人员、日期、城市、事项和偏好；仅针对缺失的必要信息进行追问。</li>
@@ -134,6 +127,13 @@
                   <li><strong>Expense Agent：</strong>解析和分类票据；检查日期、金额和差旅制度；识别缺失票据；计算可报销金额、超额金额和异常项。</li>
                   <li><strong>可靠性机制：</strong>结构化输出｜Schema校验｜候选反查｜有限重试｜规则兜底｜状态保护｜人工补充｜异常降级</li>
                 </ul>
+              </article>
+              <article class="project-content-card wide">
+                <span class="project-card-index">03</span>
+                <h3>产品范围与优先级规划</h3>
+                <p><strong>P0｜核心任务闭环：</strong>意图识别｜信息抽取与澄清｜差旅制度匹配｜预算估算｜交通酒店查询｜逐日行程生成｜规则校验与异常兜底</p>
+                <p><strong>P1｜任务延续与结果优化：</strong>自然语言修改方案｜影响范围分析｜局部重规划｜票据识别与分类｜报销合规核查｜任务状态持久化｜Trace记录</p>
+                <p><strong>P2｜完整产品交付：</strong>前后端接口接入｜执行过程实时展示｜日历与文件导出｜邮件能力｜真实预订能力｜用户偏好与长期记忆</p>
               </article>
               <article class="project-content-card wide">
                 <span class="project-card-index">04</span>
@@ -175,20 +175,25 @@
                   <li>在缺少关键信息时替用户做高风险决定</li>
                   <li>保证方案是全局最优解</li>
                 </ul>
-                <p><strong>系统对 AI 的限制</strong></p>
-                <ul>
-                  <li>AI输出必须经过Schema校验</li>
-                  <li>资源选择必须引用工具返回的候选项</li>
-                  <li>金额与日期由代码计算</li>
-                  <li>政策与行程约束由规则校验</li>
-                  <li>用户事实不得被模型随意覆盖</li>
-                  <li>失败只允许有限重试</li>
-                  <li>无法可靠判断时转为规则兜底或请求人工补充</li>
-                </ul>
               </article>
               <article class="project-content-card wide">
                 <h3>评测指标</h3>
-                <p>项目详情内容待补充：说明评测指标与验证方法。</p>
+                <p><strong>结果质量</strong></p>
+                <p>关注系统最终是否正确完成用户任务，避免只根据语言表达是否自然判断效果。</p>
+                <ul>
+                  <li><strong>任务完成率：</strong>是否完成信息收集、差旅申请、行程规划或报销检查等目标</li>
+                  <li><strong>关键信息准确率：</strong>时间、地点、人数、预算、员工等级等信息是否提取正确</li>
+                  <li><strong>规则合规率：</strong>交通、住宿、餐补等结果是否符合企业政策与预算</li>
+                  <li><strong>方案可执行率：</strong>行程是否不存在时间冲突、资源错误或关键环节缺失</li>
+                </ul>
+                <p><strong>过程质量</strong></p>
+                <p>关注多智能体系统是否通过正确、稳定的链路得到结果。</p>
+                <ul>
+                  <li><strong>Agent路由正确率：</strong>任务是否进入正确Agent，流转顺序是否合理</li>
+                  <li><strong>工具调用正确率：</strong>工具选择、调用参数及返回结果的使用是否正确</li>
+                  <li><strong>状态一致率：</strong>用户约束在追问、Agent切换和方案修改过程中是否完整保留</li>
+                  <li><strong>异常处理成功率：</strong>信息缺失、工具失败或需求修改后，任务能否恢复并继续执行</li>
+                </ul>
               </article>
             </div>
           </section>
