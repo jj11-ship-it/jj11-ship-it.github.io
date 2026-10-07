@@ -110,30 +110,41 @@
           <section id="prd-summary" class="project-story-section">
             <h2>PRD 摘要</h2>
             <div class="project-content-grid project-prd-grid">
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <span class="project-card-index">01</span>
                 <h3>用户与核心场景</h3>
-                <p>项目详情内容待补充：说明目标用户、核心场景与需求边界。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">02</span>
-                <h3>核心业务流程</h3>
-                <p>项目详情内容待补充：说明核心业务流程。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">03</span>
-                <h3>产品范围与优先级规划</h3>
-                <p>项目详情内容待补充：说明产品范围与优先级规划。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">04</span>
-                <h3>核心功能需求</h3>
-                <p>项目详情内容待补充：说明核心功能需求。</p>
+                <p><strong>目标用户：</strong>有明确差旅制度约束、需要独立完成行程规划与报销的企业员工，典型用户包括销售、咨询顾问和项目人员。</p>
+                <p><strong>核心场景：</strong>自然语言发起出差｜生成出差申请与粗预算｜上传票据并完成报销核查</p>
               </article>
               <article class="project-content-card wide">
-                <span class="project-card-index">05</span>
+                <span class="project-card-index">02</span>
+                <h3>产品范围与优先级规划</h3>
+                <p><strong>P0｜核心任务闭环：</strong>意图识别｜信息抽取与澄清｜差旅制度匹配｜预算估算｜交通酒店查询｜逐日行程生成｜规则校验与异常兜底</p>
+                <p><strong>P1｜任务延续与结果优化：</strong>自然语言修改方案｜影响范围分析｜局部重规划｜票据识别与分类｜报销合规核查｜任务状态持久化｜Trace记录</p>
+                <p><strong>P2｜完整产品交付：</strong>前后端接口接入｜执行过程实时展示｜日历与文件导出｜邮件能力｜真实预订能力｜用户偏好与长期记忆</p>
+              </article>
+              <article class="project-content-card wide">
+                <span class="project-card-index">03</span>
+                <h3>核心功能需求</h3>
+                <ul>
+                  <li><strong>Intent Agent：</strong>识别新建出差、修改方案、报销和闲聊意图；提取人员、日期、城市、事项和偏好；仅针对缺失的必要信息进行追问。</li>
+                  <li><strong>Application Agent：</strong>识别人员差旅级别；匹配交通、住宿和补贴标准；查询参考价格；生成出差申请和粗预算。</li>
+                  <li><strong>Planning Agent：</strong>生成全局行程骨架；查询交通、酒店、地图和天气；选择关键资源；生成逐日安排；完成时间、空间、政策和预算校验。</li>
+                  <li><strong>方案修改：</strong>理解用户修改要求；定位目标事件；判断影响范围；仅重算受影响的日期或资源；保留未受影响内容并记录版本差异。</li>
+                  <li><strong>Expense Agent：</strong>解析和分类票据；检查日期、金额和差旅制度；识别缺失票据；计算可报销金额、超额金额和异常项。</li>
+                  <li><strong>可靠性机制：</strong>结构化输出｜Schema校验｜候选反查｜有限重试｜规则兜底｜状态保护｜人工补充｜异常降级</li>
+                </ul>
+              </article>
+              <article class="project-content-card wide">
+                <span class="project-card-index">04</span>
                 <h3>核心验收标准</h3>
-                <p>项目详情内容待补充：说明核心验收标准。</p>
+                <ul>
+                  <li><strong>需求理解：</strong>正确识别四类用户意图；已提供的信息不重复询问；用户明确事实不被模型覆盖。</li>
+                  <li><strong>行程规划：</strong>固定事项完整保留；不存在时间冲突和空间不可达；交通、酒店均来自真实候选或明确标注的降级数据；方案符合制度和用户偏好。</li>
+                  <li><strong>方案修改：</strong>修改要求落到正确事件；受影响内容正确更新；无关日期和事件保持不变；修改后重新完成全局校验。</li>
+                  <li><strong>报销核查：</strong>票据分类、合规判断和金额计算正确；能够识别缺失、超标和异常票据；无法判断的结果明确提示人工确认。</li>
+                  <li><strong>异常恢复：</strong>模型或工具失败时能够有限重试或安全降级；失败结果不得覆盖已有有效状态；任务可从最近有效状态继续执行。</li>
+                </ul>
               </article>
             </div>
           </section>
@@ -141,11 +152,41 @@
           <section id="ai-evaluation" class="project-story-section">
             <h2>AI 能力边界与评测</h2>
             <div class="project-content-grid">
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <h3>能力边界</h3>
-                <p>项目详情内容待补充：说明 AI 能力边界与兜底机制。</p>
+                <p><strong>AI 能够完成</strong></p>
+                <ul>
+                  <li>自然语言意图识别</li>
+                  <li>用户需求与偏好抽取</li>
+                  <li>缺失信息判断与问题生成</li>
+                  <li>政策语义理解</li>
+                  <li>候选交通和酒店的综合选择</li>
+                  <li>逐日行程与自由事件规划</li>
+                  <li>自然语言修改要求定位</li>
+                  <li>票据类型判断</li>
+                  <li>用户提示与结果说明</li>
+                </ul>
+                <p><strong>AI 不能独立完成</strong></p>
+                <ul>
+                  <li>保证外部信息真实和实时</li>
+                  <li>精确计算日期、费用与补贴</li>
+                  <li>可靠判断时间冲突和空间可达性</li>
+                  <li>自由生成不存在的航班、车次或酒店</li>
+                  <li>在缺少关键信息时替用户做高风险决定</li>
+                  <li>保证方案是全局最优解</li>
+                </ul>
+                <p><strong>系统对 AI 的限制</strong></p>
+                <ul>
+                  <li>AI输出必须经过Schema校验</li>
+                  <li>资源选择必须引用工具返回的候选项</li>
+                  <li>金额与日期由代码计算</li>
+                  <li>政策与行程约束由规则校验</li>
+                  <li>用户事实不得被模型随意覆盖</li>
+                  <li>失败只允许有限重试</li>
+                  <li>无法可靠判断时转为规则兜底或请求人工补充</li>
+                </ul>
               </article>
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <h3>评测指标</h3>
                 <p>项目详情内容待补充：说明评测指标与验证方法。</p>
               </article>
@@ -157,11 +198,21 @@
             <div class="project-content-grid">
               <article class="project-content-card">
                 <h3>主要交付物</h3>
-                <p>项目详情内容待补充：说明主要交付物。</p>
+                <ul>
+                  <li>多智能体职责划分与路由设计</li>
+                  <li>LLM 与代码分工策略</li>
+                  <li>分层兜底与质量链机制</li>
+                  <li>独立评测集、稳定性复跑与人工校准</li>
+                  <li>事实溯源与状态保护</li>
+                </ul>
               </article>
               <article class="project-content-card">
                 <h3>复盘</h3>
-                <p>项目详情内容待补充：说明复盘结论与下一步迭代方向。</p>
+                <ul class="project-review-list">
+                  <li><strong>Agent数量不等于产品能力</strong>早期方案强调多角色协商，但随着业务流程细化，发现部分角色只是工具能力或确定性计算。最终将天气归入工具层、预算归入业务规则，并收敛为四智能体状态机。Agent应由独立业务判断和状态职责决定，而不是为了体现“多智能体”而增加角色。</li>
+                  <li><strong>异常处理需要在设计阶段前置</strong>模型格式错误、工具无结果、政策文件异常和计划冲突不是边缘情况，而是Agent产品的常态。结构化校验、有限重试、规则兜底、状态保护和人工补充需要在工作流设计阶段就被纳入。</li>
+                  <li><strong>评测不能只看最终答案</strong>一个方案看起来合理，并不代表执行过程正确。评测需要同时覆盖结果质量和过程质量，结合最终方案、Workflow路径、State传递、工具调用、异常恢复、执行时间与成本进行判断。</li>
+                </ul>
               </article>
             </div>
           </section>
