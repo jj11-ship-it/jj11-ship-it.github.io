@@ -2079,6 +2079,10 @@ body[data-theme="dark"] .project-card-highlight {
   margin-bottom: 0;
 }
 
+.project-decision-list p + p {
+  margin-top: 8px;
+}
+
 .project-content-card p + p,
 .project-content-card p + ul,
 .project-content-card p + ol,

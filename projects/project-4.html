@@ -81,8 +81,9 @@
           <section id="key-decisions" class="project-story-section">
             <h2>关键产品决策</h2>
             <div class="project-decision-list">
-              <article><span>01</span><div><h3>决策占位一</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
-              <article><span>02</span><div><h3>决策占位二</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
+              <article><span>01</span><div><h3>显式化生成过程</h3><p><strong>问题：</strong>AI 生成不可解释，用户无法追溯画面依据</p><p><strong>选择：</strong>增加语义理解与视觉映射层，拆解单步黑盒</p><p><strong>价值：</strong>提升可解释性与可控性</p></div></article>
+              <article><span>02</span><div><h3>建立语义到视觉转换框架</h3><p><strong>问题：</strong>诗词抽象语义（情感、意境）难以直接转化为图像</p><p><strong>选择：</strong>Intent–Imagery–Context 三层特征框架</p><p><strong>价值：</strong>连接文化理解与视觉表达</p></div></article>
+              <article><span>03</span><div><h3>建立评价驱动优化闭环</h3><p><strong>问题：</strong>生成错误难定位，只能整体重生成</p><p><strong>选择：</strong>问题回链到特征和视觉属性，给出修改建议</p><p><strong>价值：</strong>支持精准修改，形成“生成 → 评价 → 修改”闭环</p></div></article>
             </div>
           </section>
 
@@ -101,27 +102,38 @@
               <article class="project-content-card">
                 <span class="project-card-index">01</span>
                 <h3>用户与核心场景</h3>
-                <p>项目详情内容待补充：说明目标用户、核心场景与需求边界。</p>
+                <p><strong>目标用户：</strong>古诗词视觉内容创作者，包括文化传播、数字展览和教学资源制作人员。</p>
+                <p><strong>核心场景：</strong>用户已有明确的诗词创作任务，希望借助 AI 生成视觉内容，但不仅需要“出图”，还需要理解 AI 的生成依据、控制关键视觉表达，并在结果不理想时快速定位问题和修改。</p>
               </article>
               <article class="project-content-card">
                 <span class="project-card-index">02</span>
-                <h3>核心业务流程</h3>
-                <p>项目详情内容待补充：说明核心业务流程。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">03</span>
-                <h3>产品范围与优先级规划</h3>
-                <p>项目详情内容待补充：说明产品范围与优先级规划。</p>
-              </article>
-              <article class="project-content-card">
-                <span class="project-card-index">04</span>
                 <h3>核心功能需求</h3>
-                <p>项目详情内容待补充：说明核心功能需求。</p>
+                <ul>
+                  <li><strong>生成依据可理解：</strong>用户能够看到AI从哪些诗词内容和背景资料中得到当前创作特征，并识别存在不确定性的内容。</li>
+                  <li><strong>生成过程可控制：</strong>用户能够在出图前查看和调整关键诗词特征及其视觉表达，而不是只能依赖Prompt反复试错。</li>
+                  <li><strong>生成结果可修订：</strong>当结果不符合预期时，用户能够定位到具体问题及其对应的视觉属性和生成依据，并针对性调整。</li>
+                </ul>
               </article>
               <article class="project-content-card wide">
-                <span class="project-card-index">05</span>
+                <span class="project-card-index">03</span>
+                <h3>产品范围与优先级规划</h3>
+                <p><strong>优先级原则：</strong>围绕用户完成一次完整创作任务确定产品范围，优先解决三个前期研究中反复出现的问题：生成依据不透明 → 创作过程不可控 → 结果问题难修订</p>
+                <ul>
+                  <li><strong>理解生成依据：</strong>用户首先需要判断AI的理解是否可信，是后续生成的基础</li>
+                  <li><strong>控制生成过程：</strong>直接解决“只能改Prompt、无法控制中间过程”的核心痛点</li>
+                  <li><strong>评价并修订结果：</strong>决定产品能否从"一次生成”形成持续优化闭环</li>
+                  <li><strong>扩展创作场景：</strong>在核心生成闭环成立后验证:产品可扩展性</li>
+                </ul>
+              </article>
+              <article class="project-content-card wide">
+                <span class="project-card-index">04</span>
                 <h3>核心验收标准</h3>
-                <p>项目详情内容待补充：说明核心验收标准。</p>
+                <ul>
+                  <li><strong>可解释性：</strong>用户能够追溯关键生成内容对应的诗词或背景依据，而不是面对不可解释的模型结果。</li>
+                  <li><strong>可控性：</strong>用户能够在生成前调整关键特征和视觉表达，并让修改真实影响后续结果。</li>
+                  <li><strong>修订效率：</strong>生成结果存在问题时，用户能够定位问题来源并针对性修改，而不是只能整体重写Prompt、重新生成。</li>
+                  <li><strong>结果有效性：</strong>生成内容在诗意、关键意象关系和叙事背景等核心维度达到可接受水平，并得到目标用户或专家认可。</li>
+                </ul>
               </article>
             </div>
           </section>
@@ -129,11 +141,24 @@
           <section id="ai-evaluation" class="project-story-section">
             <h2>AI 能力边界与评测</h2>
             <div class="project-content-grid">
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <h3>能力边界</h3>
-                <p>项目详情内容待补充：说明 AI 能力边界与兜底机制。</p>
+                <p><strong>AI 负责什么</strong></p>
+                <ul>
+                  <li><strong>理解：</strong>解析诗词及相关背景，提取 Intent / Imagery / Context 等结构化特征。</li>
+                  <li><strong>映射：</strong>将诗词特征转化为人物、动作、场景、构图、色彩等视觉属性。</li>
+                  <li><strong>生成：</strong>基于确认后的视觉方案生成候选图片。</li>
+                  <li><strong>诊断：</strong>辅助判断诗意符合度、视觉属性实现情况和图像质量，并定位可能的问题。</li>
+                </ul>
+                <p><strong>AI 不做什么</strong></p>
+                <ul>
+                  <li><strong>不做唯一解释：</strong>不把某一种诗词理解作为唯一正确答案。</li>
+                  <li><strong>不做最终创作决策：</strong>不替用户决定必须保留哪些特征、采用哪种视觉表达。</li>
+                  <li><strong>不做无依据补全：</strong>缺少证据时不擅自补充历史、文化或人物信息。</li>
+                  <li><strong>不做最终质量裁决：</strong>模型评价只作为参考，不直接决定哪张图“最好”或是否最终可用。</li>
+                </ul>
               </article>
-              <article class="project-content-card">
+              <article class="project-content-card wide">
                 <h3>评测指标</h3>
                 <p>项目详情内容待补充：说明评测指标与验证方法。</p>
               </article>
@@ -149,7 +174,11 @@
               </article>
               <article class="project-content-card">
                 <h3>复盘</h3>
-                <p>项目详情内容待补充：说明复盘结论与下一步迭代方向。</p>
+                <ul class="project-review-list">
+                  <li><strong>前期用户范围仍偏专业</strong>当前主要依赖文化传播、数字展览、AI 创作相关专家，能验证专业创作场景，但对普通教师、非专业创作者的学习成本验证还不够。→ 后续：扩大教师与普通内容创作者测试，验证产品是否真正降低使用门槛。</li>
+                  <li><strong>AI 评价仍不能替代真实用户判断</strong>自动评价（Chinese-CLIP、Qwen3-VL）主要用于辅助定位问题，文化语义与审美判断仍需要人确认，评价可靠性需进一步验证。→ 后续：建立自动指标 + 专家判断 + 用户行为数据的混合评估体系。</li>
+                  <li><strong>还缺少真实产品使用数据</strong>已验证"生成结果质量"，但未充分回答：任务完成耗时、修改次数是否减少、哪些功能被频繁使用、用户是否愿意持续使用。→ 后续：建立任务完成率、修改次数、生成采纳率、完成时长等产品指标，形成持续迭代闭环。</li>
+                </ul>
               </article>
             </div>
           </section>
