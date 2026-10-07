@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>个人项目标题占位三 | 寇佳佳</title>
+    <title>E go 企业差旅多智能体助手 | 寇佳佳</title>
     <meta name="description" content="寇佳佳的 AI 产品项目详情。">
     <link rel="stylesheet" href="../styles.css">
   </head>
@@ -36,9 +36,9 @@
     <main class="project-detail section-shell">
       <section class="project-detail-hero">
         <div>
-          <p class="eyebrow">项目类型占位</p>
-          <h1 class="project-detail-title-compact">个人项目标题占位三</h1>
-          <p>项目描述占位：一句话说明目标用户、要解决的问题与产品价值。</p>
+          <p class="eyebrow">Multi-Agent Application</p>
+          <h1 class="project-detail-title-compact">E go 企业差旅多智能体助手</h1>
+          <p>面向商务出差人群，将一句话需求转化为申请、行程、报销的完整执行闭环。</p>
           <div class="project-detail-actions">
             <a class="btn primary" href="../index.html#case-studies">Back to Projects</a>
               <a class="btn secondary" href="#" target="_blank" rel="noreferrer">Open Demo ↗</a>
@@ -46,9 +46,9 @@
         </div>
 
         <aside class="project-facts" aria-label="项目概览">
-          <div><span>Role</span><strong>角色占位</strong></div>
-          <div><span>Tools</span><strong>工具占位</strong></div>
-          <div><span>Value</span><strong>关键结果占位：用量化数据说明项目成果与影响。</strong></div>
+          <div><span>Role</span><strong>产品与体验设计 · Agent工作流设计 · 评测体系设计</strong></div>
+          <div><span>Tools</span><strong>LangGraph · SQLite · React</strong></div>
+          <div><span>Value</span><strong>多智能体工作流 · 工具调用与规则兜底</strong></div>
         </aside>
       </section>
 
@@ -68,30 +68,42 @@
             <div class="project-content-grid">
               <article class="project-content-card">
                 <h3>核心问题</h3>
-                <p>项目详情内容待补充：说明目标用户、使用场景及需要解决的核心问题。</p>
+                <p>多工具切换，出差规划效率低；企业差旅规则复杂，容易超标；行程修改会引发预算与日程连锁变化；规划结果与报销整理相互割裂</p>
               </article>
               <article class="project-content-card">
                 <h3>关键挑战</h3>
-                <p>项目详情内容待补充：说明 AI 能力落地需要应对的关键挑战。</p>
+                <ul>
+                  <li>自然语言需求存在缺失与歧义；</li>
+                  <li>规划需要同时满足时间、空间、预算、政策和个人偏好；</li>
+                  <li>多个 Agent 之间需要保持状态一致；</li>
+                  <li>模型、外部工具和真实数据均存在不稳定性</li>
+                </ul>
               </article>
             </div>
-            <div class="project-goal-callout"><strong>产品目标：</strong>项目详情内容待补充：用一句话说明产品目标。</div>
+            <div class="project-goal-callout"><strong>产品目标：</strong>让用户通过自然语言提出需求，由系统完成信息澄清、制度匹配、预算估算、行程规划、方案修改和报销核查，降低出差任务的操作成本与决策负担。</div>
           </section>
 
           <section id="key-decisions" class="project-story-section">
             <h2>关键产品决策</h2>
             <div class="project-decision-list">
-              <article><span>01</span><div><h3>决策占位一</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
-              <article><span>02</span><div><h3>决策占位二</h3><p>项目详情内容待补充：说明方案取舍与决策依据。</p></div></article>
+              <article><span>01</span><div><h3>从自由协商收敛为可控工作流</h3><p>早期设想采用五角色联盟与 Agent 间谈判，后续收敛为 Intent、Application、Planning、Expense 四智能体状态机，优先保证任务链路稳定、职责清晰和结果可验证。</p></div></article>
+              <article><span>02</span><div><h3>明确 LLM、Tool 与 Code 的边界</h3><p>LLM负责意图理解、信息抽取和软决策；Tool负责获取交通、酒店、地图、天气和票据信息；Code负责日期、金额、制度、时间冲突和空间可达性等确定性判断。</p></div></article>
+              <article><span>03</span><div><h3>采用局部修改而非整体重生成</h3><p>用户修改酒店、会议时间或交通偏好时，系统先判断影响范围，只重新规划受影响的资源和日期，尽量保持其他内容不变。</p></div></article>
+              <article><span>04</span><div><h3>为模型输出设置多层可靠性保障</h3><p>通过结构化输出、Schema校验、候选反查、有限重试、规则兜底和人工补充，降低模型幻觉与错误结果污染已有状态的风险。</p></div></article>
             </div>
           </section>
 
           <section id="user-flow" class="project-story-section">
             <h2>工作流</h2>
-            <div class="project-flow" aria-label="项目工作流">
-              <span>阶段占位一</span>
-              <span>阶段占位二</span>
-              <span>阶段占位三</span>
+            <div class="project-flow" aria-label="E go 项目工作流">
+              <span>产品定位</span>
+              <span>用户旅程与功能设计</span>
+              <span>Agent工作流设计</span>
+              <span>AI、Tool、Code边界划分</span>
+              <span>验收标准与异常策略</span>
+              <span>功能走查与问题反馈</span>
+              <span>评测体系设计</span>
+              <span>数据分析与迭代</span>
             </div>
           </section>
 
