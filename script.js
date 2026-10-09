@@ -130,6 +130,32 @@ const demoData = {
       { num: "15", title: "阶段 3（5/5）｜系统设置：模型与参数配置", web: "projects/project_1/web/15.jpg", full: "projects/project_1/15.png" }
     ]
   },
+  "project-2": {
+    eyebrow: "Project Case Study",
+    title: "FullStackFlow 全栈功能链路学习平台",
+    subtitle: "全栈功能链路学习 · 2026",
+    intro: "这不是一个教你写代码的课程平台。它让你亲手操作真实运行的系统，把一次操作静默采集为 8 节点链路证据（点击→请求→后端→写库→返回→页面更新），让抽象的全栈概念回到可验证的真实运行记录上；再用练习、实战和证据受限的 AI 导师验证你真的学会，而不是感觉学会。",
+    showcaseTitle: "系统界面流程",
+    showcaseSub: "从注册到学习报告的 15 个流程界面",
+    showcaseDesc: "按真实学习闭环查看：进入平台、了解项目、前置阅读、真实操作、AI 学习导师、练习实战与学习沉淀。所有界面来自真实运行的本地系统，证据与数据均为真实操作产生。点击任意图片可查看高清原图。",
+    screenshots: [
+      { num: "01", title: "阶段 1（1/3）｜进入平台：首页与核心入口", web: "projects/project_2/web/1.jpg", full: "projects/project_2/1.png" },
+      { num: "02", title: "阶段 1（2/3）｜进入平台：注册登录", web: "projects/project_2/web/2.jpg", full: "projects/project_2/2.png" },
+      { num: "03", title: "阶段 1（3/3）｜进入平台：内置项目库与四阶段路线", web: "projects/project_2/web/3.jpg", full: "projects/project_2/3.png" },
+      { num: "04", title: "阶段 2（1/4）｜了解项目：Todo 项目详情与真实学习进度", web: "projects/project_2/web/4.jpg", full: "projects/project_2/4.png" },
+      { num: "05", title: "阶段 2（2/4）｜了解项目：前置阅读 · 状态码家族", web: "projects/project_2/web/5.jpg", full: "projects/project_2/5.png" },
+      { num: "06", title: "阶段 2（3/4）｜了解项目：新增任务课程导览", web: "projects/project_2/web/6.jpg", full: "projects/project_2/6.png" },
+      { num: "07", title: "阶段 2（4/4）｜了解项目：课程目录与四模块大纲", web: "projects/project_2/web/7.jpg", full: "projects/project_2/7.png" },
+      { num: "08", title: "阶段 3（1/2）｜真实操作：四面板学习工作台", web: "projects/project_2/web/8.jpg", full: "projects/project_2/8.png" },
+      { num: "09", title: "阶段 3（2/2）｜真实操作：任务添加成功，运行证据生成", web: "projects/project_2/web/9.jpg", full: "projects/project_2/9.png" },
+      { num: "10", title: "阶段 4（1/2）｜AI 学习导师：提问前的上下文授权确认", web: "projects/project_2/web/10.jpg", full: "projects/project_2/10.png" },
+      { num: "11", title: "阶段 4（2/2）｜AI 学习导师：基于当前节点证据的流式回答", web: "projects/project_2/web/11.jpg", full: "projects/project_2/11.png" },
+      { num: "12", title: "阶段 5（1/2）｜验证学习：练习", web: "projects/project_2/web/12.jpg", full: "projects/project_2/12.png" },
+      { num: "13", title: "阶段 5（2/2）｜验证学习：实战—修正重复任务", web: "projects/project_2/web/13.jpg", full: "projects/project_2/13.png" },
+      { num: "14", title: "阶段 6（1/2）｜学习沉淀：学习记录与三态机制", web: "projects/project_2/web/14.jpg", full: "projects/project_2/14.png" },
+      { num: "15", title: "阶段 6（2/2）｜学习沉淀：学习报告", web: "projects/project_2/web/15.jpg", full: "projects/project_2/15.png" }
+    ]
+  },
   "project-4": {
     eyebrow: "Project Case Study",
     title: "可解释诗词图像生成工作台",
