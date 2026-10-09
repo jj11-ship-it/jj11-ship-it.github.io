@@ -2403,10 +2403,10 @@ body[data-theme="dark"] .project-decision-list article {
 
 .demo-intro {
   margin: 0;
-  max-width: 820px;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .demo-showcase {
@@ -2430,10 +2430,10 @@ body[data-theme="dark"] .project-decision-list article {
 
 .demo-showcase-head p {
   margin: 0;
-  max-width: 680px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
+  text-align: justify;
 }
 
 .demo-grid {
