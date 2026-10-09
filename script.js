@@ -166,14 +166,15 @@ const getDemoDialog = () => {
 const getDemoLightbox = () => {
   let lightbox = document.querySelector(".demo-lightbox");
   if (!lightbox) {
-    lightbox = document.createElement("div");
+    lightbox = document.createElement("dialog");
     lightbox.className = "demo-lightbox";
-    lightbox.hidden = true;
     lightbox.innerHTML = '<img alt="截图高清原图">';
     document.body.appendChild(lightbox);
-    lightbox.addEventListener("click", () => {
-      lightbox.hidden = true;
-      lightbox.querySelector("img").src = "";
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener("close", () => {
+      lightbox.querySelector("img").removeAttribute("src");
     });
   }
   return lightbox;
@@ -227,7 +228,7 @@ document.querySelectorAll("[data-demo]").forEach((link) => {
       const openFull = () => {
         const lightbox = getDemoLightbox();
         lightbox.querySelector("img").src = card.dataset.full;
-        lightbox.hidden = false;
+        lightbox.showModal();
       };
       card.addEventListener("click", openFull);
       card.addEventListener("keydown", (event) => {
