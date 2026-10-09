@@ -129,6 +129,13 @@ const demoData = {
       { num: "14", title: "阶段 3（4/5）｜FAQ 管理：常见问题维护", web: "projects/project_1/web/14.jpg", full: "projects/project_1/14.png" },
       { num: "15", title: "阶段 3（5/5）｜系统设置：模型与参数配置", web: "projects/project_1/web/15.jpg", full: "projects/project_1/15.png" }
     ]
+  },
+  "project-4": {
+    eyebrow: "Project Case Study",
+    title: "可解释诗词图像生成工作台",
+    subtitle: "可解释 AI 图像生成 · 2026",
+    intro: "这不是一款把诗句直接丢给文生图模型的黑盒工具。它先把诗词、传记、肖像等多源文化资料组织成带来源定位的证据库，再用“意-象-境”三层框架把诗意特征显性映射到视觉属性，让用户在四视图工作台中理解并干预生成全过程；以专家盲评与自动指标双轨验证结果，发现偏差可沿证据链回链到根因、定向修订，确保每张图承载的诗意都有据可查。",
+    video: "projects/project_4/poemvis-demo.mp4"
   }
 };
 
@@ -181,9 +188,19 @@ const getDemoLightbox = () => {
 };
 
 const renderDemoBody = (demo) => {
-  const cards = demo.screenshots
-    .map(
-      (s) => `
+  const showcase = demo.video
+    ? `
+    <section class="demo-showcase">
+      <div class="demo-showcase-head">
+        <h4>功能演示</h4>
+        <p>${demo.videoNote || "以下视频完整演示了产品的主要功能与操作流程。"}</p>
+      </div>
+      <video class="demo-video" src="${demo.video}" controls playsinline preload="metadata"></video>
+    </section>`
+    : (() => {
+        const cards = demo.screenshots
+          .map(
+            (s) => `
       <figure class="demo-card" data-full="${s.full}" role="button" tabindex="0" aria-label="查看 ${s.num} 高清原图">
         <div class="demo-figure">
           <img src="${s.web}" alt="${s.title}" loading="lazy">
@@ -194,14 +211,10 @@ const renderDemoBody = (demo) => {
           <strong>${s.title}</strong>
         </figcaption>
       </figure>`
-    )
-    .join("");
+          )
+          .join("");
 
-  return `
-    <section class="demo-hero">
-      <span class="demo-subtitle">${demo.subtitle}</span>
-      <p class="demo-intro">${demo.intro}</p>
-    </section>
+        return `
     <section class="demo-showcase">
       <div class="demo-showcase-head">
         <h4>${demo.showcaseTitle}</h4>
@@ -209,7 +222,15 @@ const renderDemoBody = (demo) => {
       </div>
       <div class="demo-grid">${cards}</div>
       <p class="demo-tip">${demo.showcaseDesc}</p>
+    </section>`;
+      })();
+
+  return `
+    <section class="demo-hero">
+      <span class="demo-subtitle">${demo.subtitle}</span>
+      <p class="demo-intro">${demo.intro}</p>
     </section>
+    ${showcase}
   `;
 };
 
